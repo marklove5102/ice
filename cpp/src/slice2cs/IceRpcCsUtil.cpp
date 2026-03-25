@@ -35,7 +35,7 @@ namespace
     [[nodiscard]] string getTagFormat(const TypePtr& type)
     {
         SequencePtr seq = dynamic_pointer_cast<Sequence>(type);
-        if (isString(type) || (seq && seq->type()->minWireSize() == 1))
+        if (isString(type) || (seq && !seq->type()->isVariableLength() && seq->type()->minWireSize() == 1))
         {
             return "OptimizedVSize";
         }
