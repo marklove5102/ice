@@ -8,7 +8,7 @@ on:
         required: true
         type: string
       authenticode_sign:
-        description: "Whether to Authenticode sign Windows binaries"
+        description: "Sign Windows binaries with Authenticode"
         required: false
         type: boolean
         default: false
@@ -18,7 +18,7 @@ on:
         description: "The run ID to use for downloading artifacts"
         required: true
       authenticode_sign:
-        description: "Whether to Authenticode sign Windows binaries"
+        description: "Sign Windows binaries with Authenticode"
         required: false
         type: boolean
         default: false

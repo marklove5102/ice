@@ -7,7 +7,7 @@ on:
         required: false
         type: string
       authenticode_sign:
-        description: "Whether to Authenticode sign Windows binaries"
+        description: "Sign Windows binaries with Authenticode"
         required: false
         type: boolean
         default: false
@@ -17,7 +17,7 @@ on:
         description: "The Ice version to build"
         required: false
       authenticode_sign:
-        description: "Whether to Authenticode sign Windows binaries"
+        description: "Sign Windows binaries with Authenticode"
         required: false
         type: boolean
         default: false
