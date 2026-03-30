@@ -34,11 +34,11 @@ jobs:
 
           - distribution: debian12
             arch: amd64
-            deb_build_profiles: "no-python312"
+            deb_build_profiles: "nopython"
 
           - distribution: debian12
             arch: arm64
-            deb_build_profiles: "no-python312"
+            deb_build_profiles: "nopython"
 
           - distribution: debian13
             arch: amd64
@@ -91,6 +91,14 @@ jobs:
             -e DEB_BUILD_PROFILES="${{ matrix.deb_build_profiles }}" \
             ghcr.io/zeroc-ice/ice-deb-builder-${{ matrix.distribution }}:${CHANNEL} \
             /workspace/ice/packaging/deb/build-package.sh
+        shell: bash
+
+      - name: Run Lintian
+        run: |
+          docker run --rm \
+            -v "$GITHUB_WORKSPACE:/workspace" \
+            ghcr.io/zeroc-ice/ice-deb-builder-${{ matrix.distribution }}:${CHANNEL} \
+            bash -c 'lintian /workspace/*_source.changes'
         shell: bash
 
       - name: Upload Artifacts
