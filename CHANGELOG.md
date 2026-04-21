@@ -8,6 +8,8 @@ might need to be aware of.
 - [Changes in Ice 3.9.0](#changes-in-ice-390)
   - [General Changes](#general-changes)
   - [Slice Language Changes](#slice-language-changes)
+  - [C++ Changes](#c-changes)
+  - [C# Changes](#c-changes-1)
 
 ## Changes in Ice 3.9.0
 
@@ -23,6 +25,14 @@ These are the changes since the [Ice 3.8.1] release.
   do not return data (no return type, out parameters, or exception specification). `OnewayOnlyException` is thrown
   if a `["oneway"]` operation is invoked using a twoway proxy. In languages where exceptions can be thrown synchronously or asynchronously, this exception is always thrown synchronously.
 
-- Removed support for using `@p` tags in doc-comments to reference out parameters.
+### C++ Changes
+
+- Changed the mapping of `@p [NAME]` tags which reference out parameters in Slice.
+  These now generate `` `[NAME]` `` instead of `@p [NAME]`.
+
+### C# Changes
+
+- Changed the mapping of `@p [NAME]` tags which reference out parameters in Slice.
+  These now generate `<c>[NAME]</c>` instead of `<paramref name="[NAME]" />`.
 
 [Ice 3.8.1]: https://github.com/zeroc-ice/ice/blob/3.8/CHANGELOG-3.8.md
